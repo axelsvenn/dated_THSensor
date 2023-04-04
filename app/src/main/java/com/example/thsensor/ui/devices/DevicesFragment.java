@@ -19,14 +19,14 @@ public class DevicesFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DevicesViewModel dashboardViewModel =
+        DevicesViewModel devicesViewModel =
                 new ViewModelProvider(this).get(DevicesViewModel.class);
 
         binding = FragmentDevicesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDevices;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        devicesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
