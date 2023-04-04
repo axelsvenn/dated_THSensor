@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_devices"
         android:name="com.example.thsensor.ui.devices.DevicesFragment"
-        android:label="@string/title_dashboard" />
+        android:label="@string/title_devices" />
 
     <fragment
         android:id="@+id/navigation_notifications"
