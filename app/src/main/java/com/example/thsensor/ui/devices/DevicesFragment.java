@@ -9,14 +9,11 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thsensor.databinding.FragmentDevicesBinding;
-import com.example.thsensor.devices.DBDevices;
+import com.example.thsensor.devices.DBHelper;
 import com.example.thsensor.devices.MyDevice;
-
-import java.util.ArrayList;
 
 
 public class DevicesFragment extends Fragment {
@@ -38,7 +35,7 @@ public class DevicesFragment extends Fragment {
 
         ArrayAdapter<MyDevice> adapter = new DevicesAdapter(
                 binding.getRoot().getContext(),
-                DBDevices.getDevices()
+                DBHelper.getDevices()
         );
 
         listView.setAdapter(adapter);

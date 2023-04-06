@@ -2,7 +2,7 @@ package com.example.thsensor.devices;
 
 import java.util.ArrayList;
 
-public class DBDevices {
+public class DBHelper {
     public static ArrayList<MyDevice> getDevices() {
 
         // need to describe this class
