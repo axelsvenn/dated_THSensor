@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thsensor.databinding.FragmentDevicesBinding;
-import com.example.thsensor.devices.DBHelper;
+import com.example.thsensor.devices.DataHelper;
 import com.example.thsensor.devices.MyDevice;
 
 
@@ -35,7 +35,7 @@ public class DevicesFragment extends Fragment {
 
         ArrayAdapter<MyDevice> adapter = new DevicesAdapter(
                 binding.getRoot().getContext(),
-                DBHelper.getDevices()
+                DataHelper.getDevices()
         );
 
         listView.setAdapter(adapter);
