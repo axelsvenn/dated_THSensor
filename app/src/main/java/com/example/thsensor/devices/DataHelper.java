@@ -9,6 +9,6 @@ public class DataHelper {
 
         // need to describe this class
         // decide about static or not this method
-        return deviceProvider.getAll();
+        return deviceProvider.selectAll();
     }
 }
