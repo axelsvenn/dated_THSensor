@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,10 +30,21 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_devices, parent, false);
         }
 
+        TextView id, name, location;
+        Button clearNoti;
+
+        id = convertView.findViewById(R.id.adapter_deviceID);
+        name = convertView.findViewById(R.id.adapter_deviceName);
+        location = convertView.findViewById(R.id.adapter_deviceLocation);
+        clearNoti = convertView.findViewById(R.id.adapter_clearNotificationButton);
+
+        MyDevice item = getItem(position);
+        id.setText(id.getText().toString() + item.getId());
+        name.setText(name.getText().toString() + item.getName());
+        location.setText(location.getText().toString() + item.getLocation());
 
 
-
-        // need to describe this method
+        // need to describe clearNoti
 
         return convertView;
     }

@@ -16,5 +16,20 @@ public class MyDevice {
         // and find a messages
         return false;
     }
+
+
     // need to describe this class
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public int getId() {
+        return id;
+    }
 }
