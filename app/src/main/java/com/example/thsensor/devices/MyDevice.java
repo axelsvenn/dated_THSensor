@@ -9,5 +9,12 @@ public class MyDevice {
         this.location = location;
         this.id = id;
     }
+
+    public boolean isHasMessage() {
+        // need to describe this method
+        // this method get a request to database
+        // and find a messages
+        return false;
+    }
     // need to describe this class
 }

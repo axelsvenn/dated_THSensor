@@ -18,15 +18,18 @@ import java.util.ArrayList;
 class DevicesAdapter extends ArrayAdapter<MyDevice> {
 
     protected DevicesAdapter(@NonNull Context context, ArrayList<MyDevice> devices) {
-        super(context, R.layout.fragment_devices, devices);
+        super(context, R.layout.adapter_devices, devices);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_devices, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_devices, parent, false);
         }
+
+
+
 
         // need to describe this method
 
