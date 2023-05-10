@@ -34,10 +34,10 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_devices, parent, false);
         }
 
-        id = convertView.findViewById(R.id.adapter_deviceID_info);
-        name = convertView.findViewById(R.id.adapter_deviceName_info);
-        location = convertView.findViewById(R.id.adapter_deviceLocation_info);
-        clearNoti = convertView.findViewById(R.id.adapter_clearNotificationButton);
+        id = convertView.findViewById(R.id.deviceID_info);
+        name = convertView.findViewById(R.id.deviceName_info);
+        location = convertView.findViewById(R.id.deviceLocation_info);
+        clearNoti = convertView.findViewById(R.id.device_clearNotificationButton);
 
         MyDevice item = getItem(position);
 
