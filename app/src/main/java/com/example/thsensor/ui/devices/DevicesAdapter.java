@@ -21,7 +21,7 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
 
 
     TextView id, name, location;
-    Button clearNoti;
+    Button clearNoti, hideNoti;
 
     protected DevicesAdapter(@NonNull Context context, ArrayList<MyDevice> devices) {
         super(context, R.layout.adapter_devices, devices);
@@ -38,6 +38,7 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
         name = convertView.findViewById(R.id.deviceName_info);
         location = convertView.findViewById(R.id.deviceLocation_info);
         clearNoti = convertView.findViewById(R.id.device_clearNotificationButton);
+        hideNoti = convertView.findViewById(R.id.device_hideNotificationButton);
 
         MyDevice item = getItem(position);
 
