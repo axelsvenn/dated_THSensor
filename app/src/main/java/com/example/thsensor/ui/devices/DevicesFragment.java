@@ -4,22 +4,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.thsensor.R;
 import com.example.thsensor.databinding.FragmentDevicesBinding;
 import com.example.thsensor.devices.DataHelper;
 import com.example.thsensor.devices.MyDevice;
+import com.example.thsensor.ui.device.DeviceFragment;
 
 
 public class DevicesFragment extends Fragment {
 
+
     private FragmentDevicesBinding binding;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,11 +46,18 @@ public class DevicesFragment extends Fragment {
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
-            // need to describe a way to profile device
+            Fragment deviceFragment = new DeviceFragment();
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.container, deviceFragment);
+            transaction.addToBackStack(null);
+
+            transaction.commit();
         });
 
         return root;
     }
+
 
     @Override
     public void onDestroyView() {
