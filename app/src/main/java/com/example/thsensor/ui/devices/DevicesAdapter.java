@@ -19,6 +19,10 @@ import java.util.ArrayList;
 
 class DevicesAdapter extends ArrayAdapter<MyDevice> {
 
+
+    TextView id, name, location;
+    Button clearNoti;
+
     protected DevicesAdapter(@NonNull Context context, ArrayList<MyDevice> devices) {
         super(context, R.layout.adapter_devices, devices);
     }
@@ -30,18 +34,17 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_devices, parent, false);
         }
 
-        TextView id, name, location;
-        Button clearNoti;
-
         id = convertView.findViewById(R.id.adapter_deviceID);
         name = convertView.findViewById(R.id.adapter_deviceName);
         location = convertView.findViewById(R.id.adapter_deviceLocation);
         clearNoti = convertView.findViewById(R.id.adapter_clearNotificationButton);
 
         MyDevice item = getItem(position);
-        id.setText(id.getText().toString() + item.getId());
-        name.setText(name.getText().toString() + item.getName());
-        location.setText(location.getText().toString() + item.getLocation());
+
+        id.setText(getContext().getString(R.string.adapter_deviceID) + item.getId());
+        name.setText(getContext().getString(R.string.adapter_deviceName) + item.getName());
+        location.setText(getContext().getString(R.string.adapter_deviceLocation) + item.getLocation());
+        clearNoti.setText(getContext().getString(R.string.adapter_deviceclearButton));
 
 
         // need to describe clearNoti
