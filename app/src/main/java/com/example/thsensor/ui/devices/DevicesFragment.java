@@ -49,7 +49,7 @@ public class DevicesFragment extends Fragment {
             Fragment deviceFragment = new DeviceFragment();
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.container, deviceFragment);
+            transaction.replace(R.id.nav_host_fragment_activity_main, deviceFragment);
             transaction.addToBackStack(null);
 
             transaction.commit();
@@ -57,7 +57,6 @@ public class DevicesFragment extends Fragment {
 
         return root;
     }
-
 
     @Override
     public void onDestroyView() {
