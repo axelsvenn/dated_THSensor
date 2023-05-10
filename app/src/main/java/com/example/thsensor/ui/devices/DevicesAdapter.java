@@ -34,17 +34,16 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_devices, parent, false);
         }
 
-        id = convertView.findViewById(R.id.adapter_deviceID);
-        name = convertView.findViewById(R.id.adapter_deviceName);
-        location = convertView.findViewById(R.id.adapter_deviceLocation);
+        id = convertView.findViewById(R.id.adapter_deviceID_info);
+        name = convertView.findViewById(R.id.adapter_deviceName_info);
+        location = convertView.findViewById(R.id.adapter_deviceLocation_info);
         clearNoti = convertView.findViewById(R.id.adapter_clearNotificationButton);
 
         MyDevice item = getItem(position);
 
-        id.setText(getContext().getString(R.string.adapter_deviceID) + item.getId());
-        name.setText(getContext().getString(R.string.adapter_deviceName) + item.getName());
-        location.setText(getContext().getString(R.string.adapter_deviceLocation) + item.getLocation());
-        clearNoti.setText(getContext().getString(R.string.adapter_deviceclearButton));
+        id.setText("" + item.getId());
+        name.setText(item.getName());
+        location.setText(item.getLocation());
 
 
         // need to describe clearNoti
