@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class MyDevice {
     private String name, location;
     private final int id;
-    private ArrayList<Notification> notifications;
+    private ArrayList<Notification> notifications = new ArrayList<>();
 
     public MyDevice(String name, String location, int id) {
         this.name = name;
@@ -23,6 +23,10 @@ public class MyDevice {
 
     public void clearMessages() {
         this.notifications.clear();
+    }
+
+    public void addMessage(String date, String time, String text) {
+        this.notifications.add(new Notification(date, time, text));
     }
 
     protected void updateMessages() {

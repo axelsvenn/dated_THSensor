@@ -12,6 +12,10 @@ public class FakeDeviceProvider implements DeviceProvider {
         devices.add(new MyDevice("www", "123.123.123", 16));
         devices.add(new MyDevice("eee", "123.123.123", 17));
 
+        devices.get(0).addMessage("11.05.23", "12:00", "text");
+        devices.get(0).addMessage("11.05.23", "12:00", "text2");
+        devices.get(1).addMessage("11.05.23", "15:00", "text3");
+
         // create a database access
         // devices.add(new MyDevice(name, location, id));
 
