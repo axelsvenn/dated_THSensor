@@ -17,7 +17,7 @@ public class MyDevice {
         return this.notifications.isEmpty();
     }
 
-    protected ArrayList<Notification> getMessages() {
+    public ArrayList<Notification> getMessages() {
         return this.notifications;
     }
 

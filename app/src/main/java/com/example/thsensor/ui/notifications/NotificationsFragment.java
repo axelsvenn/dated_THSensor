@@ -28,7 +28,7 @@ public class NotificationsFragment extends Fragment {
         View root = binding.getRoot();
 
         final ListView listView = binding.notificationsListView;
-        notificationsViewModel.getMessages().observe(getViewLifecycleOwner(), myDevices -> {
+        notificationsViewModel.getMessages().observe(getViewLifecycleOwner(), myMessages -> {
             // describe mechanics of logging
         });
 

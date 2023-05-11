@@ -36,7 +36,7 @@ public class NotificationsAdapter extends ArrayAdapter<MyDevice.Notification> {
 
         MyDevice.Notification item = getItem(position);
 
-        deviceID.setText(item.getDeviceID());
+        deviceID.setText("" + item.getDeviceID());
         date.setText(item.getDate());
         time.setText(item.getTime());
         text.setText(item.getText());

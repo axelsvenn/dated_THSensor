@@ -8,11 +8,11 @@ import com.example.thsensor.devices.MyDevice;
 
 import java.util.ArrayList;
 
-class NotificationsViewModel extends ViewModel {
+public class NotificationsViewModel extends ViewModel {
 
     private final MutableLiveData<ArrayList<MyDevice.Notification>> notifications;
 
-    protected NotificationsViewModel() {
+    public NotificationsViewModel() {
         notifications = new MutableLiveData<>();
     }
 
