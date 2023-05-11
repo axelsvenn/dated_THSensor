@@ -60,10 +60,6 @@ public class MyDevice {
             return deviceID;
         }
 
-        public void setDeviceID(int deviceID) {
-            this.deviceID = deviceID;
-        }
-
         public String getDate() {
             return date;
         }

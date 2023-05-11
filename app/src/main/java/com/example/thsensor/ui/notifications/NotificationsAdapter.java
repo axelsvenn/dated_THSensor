@@ -16,7 +16,7 @@ import com.example.thsensor.devices.MyDevice;
 import java.util.ArrayList;
 
 public class NotificationsAdapter extends ArrayAdapter<MyDevice.Notification> {
-    TextView date, time, text;
+    TextView deviceID, date, time, text;
 
     public NotificationsAdapter(@NonNull Context context, ArrayList<MyDevice.Notification> notifications) {
         super(context, R.layout.adapter_notifications, notifications);
@@ -29,11 +29,14 @@ public class NotificationsAdapter extends ArrayAdapter<MyDevice.Notification> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_notifications, parent, false);
         }
 
+        deviceID = convertView.findViewById(R.id.notificationDeviceID_info);
         date = convertView.findViewById(R.id.notificationDate_info);
         time = convertView.findViewById(R.id.notificationTime_info);
         text = convertView.findViewById(R.id.notificationText_info);
 
         MyDevice.Notification item = getItem(position);
+
+        deviceID.setText(item.getDeviceID());
         date.setText(item.getDate());
         time.setText(item.getTime());
         text.setText(item.getText());
