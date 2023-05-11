@@ -1,8 +1,11 @@
 package com.example.thsensor.devices;
 
+import java.util.ArrayList;
+
 public class MyDevice {
     private String name, location;
     private final int id;
+    private ArrayList<Notification> notifications;
 
     public MyDevice(String name, String location, int id) {
         this.name = name;
@@ -10,11 +13,16 @@ public class MyDevice {
         this.id = id;
     }
 
-    public boolean isHasMessage() {
-        // need to describe this method
-        // this method get a request to database
-        // and find a messages
-        return false;
+    protected boolean isHasMessage() {
+        return this.notifications.isEmpty();
+    }
+
+    protected ArrayList<Notification> getMessages() {
+        return this.notifications;
+    }
+
+    protected void updateMessages() {
+        // ...server
     }
 
 
@@ -31,5 +39,11 @@ public class MyDevice {
 
     public int getId() {
         return id;
+    }
+
+    protected class Notification {
+        private int deviceID;
+        private String date, time;
+        private String text;
     }
 }

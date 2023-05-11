@@ -11,4 +11,11 @@ public class DataHelper {
         // decide about static or not this method
         return deviceProvider.selectAll();
     }
+
+    public static ArrayList<MyDevice.Notification> getAllMessages() {
+        ArrayList<MyDevice.Notification> notifications = new ArrayList<>();
+        for (MyDevice myDevice: DataHelper.getDevices()) notifications.addAll(myDevice.getMessages());
+
+        return notifications;
+    }
 }
