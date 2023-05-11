@@ -4,16 +4,19 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+import com.example.thsensor.devices.MyDevice;
 
-    private final MutableLiveData<String> mText;
+import java.util.ArrayList;
 
-    public NotificationsViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+class NotificationsViewModel extends ViewModel {
+
+    private final MutableLiveData<ArrayList<MyDevice.Notification>> notifications;
+
+    protected NotificationsViewModel() {
+        notifications = new MutableLiveData<>();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<ArrayList<MyDevice.Notification>> getMessages() {
+        return notifications;
     }
 }

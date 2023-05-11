@@ -4,13 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thsensor.databinding.FragmentNotificationsBinding;
+import com.example.thsensor.devices.DataHelper;
+import com.example.thsensor.devices.MyDevice;
 
 public class NotificationsFragment extends Fragment {
 
@@ -23,6 +26,18 @@ public class NotificationsFragment extends Fragment {
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        final ListView listView = binding.notificationsListView;
+        notificationsViewModel.getMessages().observe(getViewLifecycleOwner(), myDevices -> {
+            // describe mechanics of logging
+        });
+
+        ArrayAdapter<MyDevice.Notification> adapter = new NotificationsAdapter(
+                binding.getRoot().getContext(),
+                DataHelper.getAllMessages()
+        );
+
+        listView.setAdapter(adapter);
 
         return root;
     }
