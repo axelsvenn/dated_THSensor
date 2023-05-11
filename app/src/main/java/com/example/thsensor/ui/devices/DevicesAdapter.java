@@ -46,8 +46,7 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
         name.setText(item.getName());
         location.setText(item.getLocation());
 
-
-        // need to describe clearNoti
+        clearNoti.setOnClickListener(v -> item.clearMessages());
 
         return convertView;
     }

@@ -18,4 +18,8 @@ public class DataHelper {
 
         return notifications;
     }
+
+    public static void clearAllMessages() {
+        for (MyDevice myDevice: DataHelper.getDevices()) myDevice.clearMessages();
+    }
 }

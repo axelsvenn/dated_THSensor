@@ -21,6 +21,10 @@ public class MyDevice {
         return this.notifications;
     }
 
+    public void clearMessages() {
+        this.notifications.clear();
+    }
+
     protected void updateMessages() {
         // ...server
     }
