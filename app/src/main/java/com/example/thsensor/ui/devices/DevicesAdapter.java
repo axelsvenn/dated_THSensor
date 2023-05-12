@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.thsensor.R;
 import com.example.thsensor.devices.MyDevice;
 import com.example.thsensor.ui.device.DeviceFragment;
+import com.example.thsensor.ui.notifications.DialogClearNotificationsFragment;
 import com.example.thsensor.ui.notifications.NotificationsFragment;
 
 import java.util.ArrayList;
@@ -53,7 +54,12 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
         name.setText(item.getName());
         location.setText(item.getLocation());
 
-        clearNoti.setOnClickListener(v -> item.clearMessages());
+        clearNoti.setOnClickListener(v -> {
+            DialogClearNotificationsFragment dialog = new DialogClearNotificationsFragment(item);
+            dialog.show(activity.getSupportFragmentManager(), "custom");
+            // item.clearMessages();
+        });
+
         hideNoti.setOnClickListener(v -> {
             Fragment notificationsFragment = new NotificationsFragment(item);
             FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();

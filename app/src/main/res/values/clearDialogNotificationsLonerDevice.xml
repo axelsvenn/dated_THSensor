@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_title">Clear notifications</string>
+    <string name="dialog_agree">OK</string>
+    <string name="dialog_disagree">Cancel</string>
+    <string name="dialog_text">Do you want to clear all device notifications with id\t</string>
+    <string name="dialog_warning">All notifications will be deleted</string>
+</resources>
