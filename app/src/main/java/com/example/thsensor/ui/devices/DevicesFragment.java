@@ -18,6 +18,8 @@ import com.example.thsensor.devices.DataHelper;
 import com.example.thsensor.devices.MyDevice;
 import com.example.thsensor.ui.device.DeviceFragment;
 
+import java.util.Objects;
+
 
 public class DevicesFragment extends Fragment {
 
@@ -39,6 +41,7 @@ public class DevicesFragment extends Fragment {
         });
 
         ArrayAdapter<MyDevice> adapter = new DevicesAdapter(
+                getActivity(),
                 binding.getRoot().getContext(),
                 DataHelper.getDevices()
         );
@@ -47,7 +50,7 @@ public class DevicesFragment extends Fragment {
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Fragment deviceFragment = new DeviceFragment();
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
 
             transaction.replace(R.id.nav_host_fragment_activity_main, deviceFragment);
             transaction.addToBackStack(null);

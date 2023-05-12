@@ -18,6 +18,13 @@ import com.example.thsensor.devices.MyDevice;
 public class NotificationsFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;
+    private MyDevice myDevice = null;
+
+    public NotificationsFragment() { }
+
+    public NotificationsFragment(MyDevice myDevice) {
+        this.myDevice = myDevice;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -32,10 +39,16 @@ public class NotificationsFragment extends Fragment {
             // describe mechanics of logging
         });
 
-        ArrayAdapter<MyDevice.Notification> adapter = new NotificationsAdapter(
-                binding.getRoot().getContext(),
-                DataHelper.getAllMessages()
-        );
+        ArrayAdapter<MyDevice.Notification> adapter = null;
+
+        if (myDevice == null) adapter = new NotificationsAdapter(
+                    binding.getRoot().getContext(),
+                    DataHelper.getAllMessages()
+            );
+        else adapter = new NotificationsAdapter(
+                    binding.getRoot().getContext(),
+                    myDevice.getMessages()
+            );
 
         listView.setAdapter(adapter);
 

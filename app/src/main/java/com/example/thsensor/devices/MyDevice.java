@@ -49,6 +49,10 @@ public class MyDevice {
         return id;
     }
 
+    public String getIdString() {
+        return "" + this.getId();
+    }
+
     public class Notification {
         private int deviceID = id;
         private String date, time;
@@ -62,6 +66,10 @@ public class MyDevice {
 
         public int getDeviceID() {
             return deviceID;
+        }
+
+        public String getDeviceIDString() {
+            return "" + this.getDeviceID();
         }
 
         public String getDate() {
