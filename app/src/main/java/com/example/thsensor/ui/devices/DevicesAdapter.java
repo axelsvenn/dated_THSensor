@@ -1,7 +1,6 @@
 package com.example.thsensor.ui.devices;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +11,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.thsensor.R;
 import com.example.thsensor.devices.MyDevice;
-import com.example.thsensor.ui.device.DeviceFragment;
 import com.example.thsensor.ui.notifications.DialogClearNotificationsFragment;
-import com.example.thsensor.ui.notifications.NotificationsFragment;
+import com.example.thsensor.ui.notifications.DialogNotificationsFragment;
 
 import java.util.ArrayList;
 
@@ -29,9 +26,10 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
     FragmentActivity activity;
     TextView id, name, location;
     Button clearNoti, hideNoti;
-
-    protected DevicesAdapter(FragmentActivity activity, @NonNull Context context, ArrayList<MyDevice> devices) {
+    FragmentManager childFragmentManager;
+    protected DevicesAdapter(FragmentActivity activity, @NonNull Context context, ArrayList<MyDevice> devices, FragmentManager childFragmentManager) {
         super(context, R.layout.adapter_devices, devices);
+        this.childFragmentManager = childFragmentManager;
         this.activity = activity;
     }
 
@@ -56,18 +54,18 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
 
         clearNoti.setOnClickListener(v -> {
             DialogClearNotificationsFragment dialog = new DialogClearNotificationsFragment(item);
-            dialog.show(activity.getSupportFragmentManager(), "custom");
-            // item.clearMessages();
+            dialog.show(childFragmentManager, "custom");
         });
 
         hideNoti.setOnClickListener(v -> {
-            Fragment notificationsFragment = new NotificationsFragment(item);
-            FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-
-            transaction.add(R.id.nav_host_fragment_activity_main, notificationsFragment);
-            // idk how to add fragment window
-
-            transaction.commit();
+            DialogNotificationsFragment dialog = new DialogNotificationsFragment(item);
+            dialog.show(childFragmentManager, "custom");
+//            Fragment notificationsFragment = new NotificationsFragment(item);
+//            FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+//            transaction.add(R.id.fragmentContainerView, notificationsFragment);
+//             idk how to add fragment window
+//
+//            transaction.commit();
         });
 
         return convertView;
