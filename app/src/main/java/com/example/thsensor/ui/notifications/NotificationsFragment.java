@@ -19,7 +19,7 @@ import com.example.thsensor.databinding.FragmentNotificationsBinding;
 import com.example.thsensor.devices.DataHelper;
 import com.example.thsensor.devices.MyDevice;
 
-public class NotificationsFragment extends DialogFragment {
+public class NotificationsFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;
     private MyDevice myDevice = null;
@@ -30,6 +30,7 @@ public class NotificationsFragment extends DialogFragment {
         this.myDevice = myDevice;
     }
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         NotificationsViewModel notificationsViewModel =

@@ -41,10 +41,8 @@ public class DevicesFragment extends Fragment {
         });
 
         ArrayAdapter<MyDevice> adapter = new DevicesAdapter(
-                getActivity(),
-                binding.getRoot().getContext(),
-                DataHelper.getDevices(),
-                 getChildFragmentManager()
+                this,
+                DataHelper.getDevices()
         );
 
         listView.setAdapter(adapter);

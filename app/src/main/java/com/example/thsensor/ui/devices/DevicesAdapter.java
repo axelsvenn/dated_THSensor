@@ -27,10 +27,11 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
     TextView id, name, location;
     Button clearNoti, hideNoti;
     FragmentManager childFragmentManager;
-    protected DevicesAdapter(FragmentActivity activity, @NonNull Context context, ArrayList<MyDevice> devices, FragmentManager childFragmentManager) {
-        super(context, R.layout.adapter_devices, devices);
-        this.childFragmentManager = childFragmentManager;
-        this.activity = activity;
+
+    public DevicesAdapter(DevicesFragment devicesFragment, ArrayList<MyDevice> devices) {
+        super(devicesFragment.getContext(), R.layout.adapter_devices, devices);
+        this.childFragmentManager = devicesFragment.getChildFragmentManager();
+        this.activity = devicesFragment.getActivity();
     }
 
     @NonNull
@@ -60,12 +61,6 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
         hideNoti.setOnClickListener(v -> {
             DialogNotificationsFragment dialog = new DialogNotificationsFragment(item);
             dialog.show(childFragmentManager, "custom");
-//            Fragment notificationsFragment = new NotificationsFragment(item);
-//            FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-//            transaction.add(R.id.fragmentContainerView, notificationsFragment);
-//             idk how to add fragment window
-//
-//            transaction.commit();
         });
 
         return convertView;
