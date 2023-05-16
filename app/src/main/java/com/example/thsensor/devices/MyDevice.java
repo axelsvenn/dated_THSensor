@@ -53,6 +53,10 @@ public class MyDevice {
         return "" + this.getId();
     }
 
+    public void deleteMessage(Notification notification) {
+        notifications.remove(notification);
+    }
+
     public class Notification {
         private int deviceID = id;
         private String date, time;
@@ -94,6 +98,10 @@ public class MyDevice {
 
         public void setText(String text) {
             this.text = text;
+        }
+
+        public void deleteNotification() {
+            deleteMessage(this);
         }
     }
 }
