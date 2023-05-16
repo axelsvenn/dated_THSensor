@@ -24,12 +24,14 @@ public class DialogClearNotificationsFragment extends DialogFragment {
 
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         return builder
-                .setTitle(getResources().getText(R.string.dialog_title))
+                .setTitle(getResources().getText(R.string.clearDialog_title))
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setView(R.layout.dialog_clear_notifications)
-                .setPositiveButton(getResources().getText(R.string.dialog_agree), (dialog, which) -> myDevice.clearMessages())
-                .setNegativeButton(getResources().getText(R.string.dialog_disagree), null)
-                .setMessage(getResources().getText(R.string.dialog_text) + " " + myDevice.getIdString() + "?")
+                .setPositiveButton(getResources().getText(R.string.clearDialog_agree), (dialog, which) -> myDevice.clearMessages())
+                .setNegativeButton(getResources().getText(R.string.clearDialog_disagree), null)
+                .setMessage(getResources().getText(R.string.clearDialog_text) + " " + myDevice.getIdString() + "?")
                 .create();
     }
+
+
 }
