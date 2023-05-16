@@ -43,7 +43,10 @@ public class NotificationsAdapter extends ArrayAdapter<MyDevice.Notification> {
         date.setText(item.getDate());
         time.setText(item.getTime());
         text.setText(item.getText());
-        btnRead.setOnClickListener(v -> item.deleteNotification());
+        btnRead.setOnClickListener(v -> {
+            item.deleteNotification();
+            this.notifyDataSetChanged();
+        });
 
         return convertView;
     }

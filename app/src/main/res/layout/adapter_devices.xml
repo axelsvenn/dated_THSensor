@@ -5,18 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/device_clearNotificationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:focusable="false"
-        android:text="@string/deviceclearButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
     <TextView
         android:id="@+id/deviceID"
         android:layout_width="wrap_content"
@@ -85,15 +73,15 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/device_hideNotificationButton"
+        android:id="@+id/device_notificationButton"
         android:layout_width="31dp"
         android:layout_height="wrap_content"
-        android:text="V"
         android:focusable="false"
+        android:text="V"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/device_clearNotificationButton"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="@+id/deviceLocation_info"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 </androidx.constraintlayout.widget.ConstraintLayout>

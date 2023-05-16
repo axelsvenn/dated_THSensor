@@ -1,7 +1,6 @@
 package com.example.thsensor.ui.devices;
 
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.thsensor.R;
 import com.example.thsensor.devices.MyDevice;
-import com.example.thsensor.ui.notifications.DialogClearNotificationsFragment;
 import com.example.thsensor.ui.notifications.DialogNotificationsFragment;
 
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
 
     FragmentActivity activity;
     TextView id, name, location;
-    Button clearNoti, hideNoti;
+    Button btnNoti;
     FragmentManager childFragmentManager;
 
     public DevicesAdapter(DevicesFragment devicesFragment, ArrayList<MyDevice> devices) {
@@ -44,8 +42,7 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
         id = convertView.findViewById(R.id.deviceID_info);
         name = convertView.findViewById(R.id.deviceName_info);
         location = convertView.findViewById(R.id.deviceLocation_info);
-        clearNoti = convertView.findViewById(R.id.device_clearNotificationButton);
-        hideNoti = convertView.findViewById(R.id.device_hideNotificationButton);
+        btnNoti = convertView.findViewById(R.id.device_notificationButton);
 
         MyDevice item = getItem(position);
 
@@ -53,12 +50,8 @@ class DevicesAdapter extends ArrayAdapter<MyDevice> {
         name.setText(item.getName());
         location.setText(item.getLocation());
 
-        clearNoti.setOnClickListener(v -> {
-            DialogClearNotificationsFragment dialog = new DialogClearNotificationsFragment(item);
-            dialog.show(childFragmentManager, "custom");
-        });
 
-        hideNoti.setOnClickListener(v -> {
+        btnNoti.setOnClickListener(v -> {
             DialogNotificationsFragment dialog = new DialogNotificationsFragment(item);
             dialog.show(childFragmentManager, "custom");
         });

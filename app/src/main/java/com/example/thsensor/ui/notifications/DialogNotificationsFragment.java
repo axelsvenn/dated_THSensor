@@ -16,7 +16,7 @@ import com.example.thsensor.devices.MyDevice;
 
 public class DialogNotificationsFragment extends DialogFragment {
 
-    MyDevice myDevice;
+    private MyDevice myDevice;
     private View view;
 
     public DialogNotificationsFragment(MyDevice myDevice) {
