@@ -13,13 +13,13 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class TempBluetoothDeviceProvider implements DeviceProvider {
+public class BluetoothDeviceProvider implements DeviceProvider {
     BluetoothSocket bluetoothSocket;
     OutputStream outputStream;
     InputStream inputStream;
     MyDevice myDevice = null;
 
-    public TempBluetoothDeviceProvider() throws IOException {
+    public BluetoothDeviceProvider() throws IOException {
         BluetoothAdapter madapter= BluetoothAdapter.getDefaultAdapter();
 
         BluetoothDevice mdevice = madapter.getRemoteDevice(((BluetoothDevice)

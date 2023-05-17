@@ -7,11 +7,7 @@ public class DataHelper {
     static DeviceProvider deviceProvider;
 
     static {
-        try {
-            deviceProvider = new TempBluetoothDeviceProvider();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        deviceProvider = new FakeDeviceProvider();
     }
 
     public static ArrayList<MyDevice> getDevices() {
