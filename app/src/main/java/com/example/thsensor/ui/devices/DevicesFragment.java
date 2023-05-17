@@ -18,8 +18,6 @@ import com.example.thsensor.devices.DataHelper;
 import com.example.thsensor.devices.MyDevice;
 import com.example.thsensor.ui.device.DeviceFragment;
 
-import java.util.Objects;
-
 
 public class DevicesFragment extends Fragment {
 
@@ -59,6 +57,7 @@ public class DevicesFragment extends Fragment {
 
         return root;
     }
+
 
     @Override
     public void onDestroyView() {

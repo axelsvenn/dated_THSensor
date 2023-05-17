@@ -1,9 +1,18 @@
 package com.example.thsensor.devices;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DataHelper {
-    static DeviceProvider deviceProvider = new FakeDeviceProvider();
+    static DeviceProvider deviceProvider;
+
+    static {
+        try {
+            deviceProvider = new TempBluetoothDeviceProvider();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static ArrayList<MyDevice> getDevices() {
 
