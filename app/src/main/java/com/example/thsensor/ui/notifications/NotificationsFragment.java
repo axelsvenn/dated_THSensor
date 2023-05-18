@@ -41,14 +41,16 @@ public class NotificationsFragment extends Fragment {
             // describe mechanics of logging
         });
 
-        if (myDevice == null) adapter = new NotificationsAdapter(
+        {
+            if (myDevice == null) adapter = new NotificationsAdapter(
                     binding.getRoot().getContext(),
                     DataHelper.getAllMessages()
             );
-        else adapter = new NotificationsAdapter(
+            else adapter = new NotificationsAdapter(
                     binding.getRoot().getContext(),
                     myDevice.getMessages()
             );
+        }
 
         listView.setAdapter(adapter);
 

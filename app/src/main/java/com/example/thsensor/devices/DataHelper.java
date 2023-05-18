@@ -7,7 +7,11 @@ public class DataHelper {
     static DeviceProvider deviceProvider;
 
     static {
-        deviceProvider = new FakeDeviceProvider();
+        try {
+            deviceProvider = new BluetoothDeviceProvider();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static ArrayList<MyDevice> getDevices() {
