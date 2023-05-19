@@ -1,4 +1,4 @@
-package com.example.thsensor.devices;
+package com.example.thsensor.devices.provider;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,10 @@
-package com.example.thsensor.devices;
+package com.example.thsensor.devices.provider;
+
+import com.example.thsensor.devices.MyDevice;
 
 import java.util.ArrayList;
 
-public class FakeDeviceProvider implements DeviceProvider{
+public class FakeDeviceProvider implements DeviceProvider {
     @Override
     public ArrayList<MyDevice> selectAll() {
 

@@ -1,17 +1,17 @@
-package com.example.thsensor.devices;
+package com.example.thsensor.devices.provider;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.AsyncTask;
 
-import java.io.BufferedInputStream;
+import com.example.thsensor.devices.MyDevice;
+import com.example.thsensor.devices.provider.DeviceProvider;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 import java.util.UUID;
 
 public class BluetoothDeviceProvider implements DeviceProvider {

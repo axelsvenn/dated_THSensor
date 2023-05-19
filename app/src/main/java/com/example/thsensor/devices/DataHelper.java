@@ -1,5 +1,8 @@
 package com.example.thsensor.devices;
 
+import com.example.thsensor.devices.provider.BluetoothDeviceProvider;
+import com.example.thsensor.devices.provider.DeviceProvider;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
