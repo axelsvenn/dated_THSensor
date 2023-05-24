@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.thsensor.R;
-import com.example.thsensor.devices.MyDevice;
+import com.example.thsensor.data.MyDevice;
 
 public class DialogClearNotificationsFragment extends DialogFragment {
 
@@ -27,7 +27,7 @@ public class DialogClearNotificationsFragment extends DialogFragment {
                 .setTitle(getResources().getText(R.string.clearDialog_title))
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setView(R.layout.dialog_clear_notifications)
-                .setPositiveButton(getResources().getText(R.string.clearDialog_agree), (dialog, which) -> myDevice.clearMessages())
+                .setPositiveButton(getResources().getText(R.string.clearDialog_agree), (dialog, which) -> myDevice.clearNotifications())
                 .setNegativeButton(getResources().getText(R.string.clearDialog_disagree), null)
                 .setMessage(getResources().getText(R.string.clearDialog_text) + " " + myDevice.getIdString() + "?")
                 .create();

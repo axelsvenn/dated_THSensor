@@ -12,8 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thsensor.databinding.FragmentNotificationsBinding;
-import com.example.thsensor.devices.DataHelper;
-import com.example.thsensor.devices.MyDevice;
+import com.example.thsensor.data.DataHelper;
+import com.example.thsensor.data.MyDevice;
+
+import java.util.ArrayList;
 
 public class NotificationsFragment extends Fragment {
 
@@ -44,11 +46,11 @@ public class NotificationsFragment extends Fragment {
         {
             if (myDevice == null) adapter = new NotificationsAdapter(
                     binding.getRoot().getContext(),
-                    DataHelper.getAllMessages()
+                    DataHelper.getAllNotifications()
             );
             else adapter = new NotificationsAdapter(
                     binding.getRoot().getContext(),
-                    myDevice.getMessages()
+                    (ArrayList<MyDevice.Notification>) myDevice.getNotifications()
             );
         }
 

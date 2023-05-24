@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.thsensor.R;
-import com.example.thsensor.devices.MyDevice;
+import com.example.thsensor.data.MyDevice;
 import com.example.thsensor.ui.notifications.DialogNotificationsFragment;
 
 import java.util.ArrayList;

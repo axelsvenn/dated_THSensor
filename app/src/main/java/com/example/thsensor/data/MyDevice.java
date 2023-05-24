@@ -1,41 +1,41 @@
-package com.example.thsensor.devices;
+package com.example.thsensor.data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyDevice {
     private String name, location;
-    private final int id;
-    private ArrayList<Notification> notifications = new ArrayList<>();
+    private final Long id;
 
-    public MyDevice(String name, String location, int id) {
+    private List<Notification> notifications;
+
+    public MyDevice(String name, String location, Long id) {
         this.name = name;
         this.location = location;
         this.id = id;
     }
 
-    protected boolean isHasMessage() {
+    protected boolean hasNotification() {
         return this.notifications.isEmpty();
     }
 
-    public ArrayList<Notification> getMessages() {
-        return this.notifications;
-    }
-
-    public void clearMessages() {
+    public void clearNotifications() {
         this.notifications.clear();
     }
 
-    public void addMessage(String date, String time, String text) {
+    public void addNotification(String date, String time, String text) {
+        if (notifications == null) notifications = new ArrayList<>();
+
         this.notifications.add(new Notification(date, time, text));
     }
 
-    protected void updateMessages() {
-        // ...server
+    public List<Notification> getNotifications() {
+        return notifications;
     }
 
-
-    // need to describe this class
-
+    public void setNotifications(ArrayList<Notification> notifications) {
+        this.notifications = notifications;
+    }
 
     public String getName() {
         return name;
@@ -45,7 +45,7 @@ public class MyDevice {
         return location;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -58,7 +58,7 @@ public class MyDevice {
     }
 
     public class Notification {
-        private int deviceID = id;
+        private Long deviceID = id;
         private String date, time;
         private String text;
 
@@ -68,7 +68,7 @@ public class MyDevice {
             this.text = text;
         }
 
-        public int getDeviceID() {
+        public Long getDeviceID() {
             return deviceID;
         }
 

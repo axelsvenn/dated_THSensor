@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.thsensor.R;
-import com.example.thsensor.devices.MyDevice;
+import com.example.thsensor.data.MyDevice;
 
 import java.util.ArrayList;
 

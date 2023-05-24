@@ -1,22 +1,21 @@
-package com.example.thsensor.devices.provider;
+package com.example.thsensor.data.provider;
+
+import static com.example.thsensor.MAIN_CONSTANTS.UUID_CONSTANT_SINGLE_DEVICE;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.AsyncTask;
 
-import com.example.thsensor.devices.MyDevice;
-import com.example.thsensor.devices.provider.DeviceProvider;
+import com.example.thsensor.data.MyDevice;
+import com.example.thsensor.data.ResponseHandler;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
 
 public class BluetoothDeviceProvider implements DeviceProvider {
-    private final UUID UUID_CONSTANT = UUID.fromString("fa916458-bbce-42f5-a016-f6e5e95a62eb");
-
     private BluetoothSocket bluetoothSocket;
     private InputStream inputStream;
     private MyDevice myDevice = null;
@@ -29,14 +28,14 @@ public class BluetoothDeviceProvider implements DeviceProvider {
 
         // temporarily i get a loner device (other activity)
 
-        bluetoothSocket = mdevice.createRfcommSocketToServiceRecord(UUID_CONSTANT);
+        bluetoothSocket = mdevice.createRfcommSocketToServiceRecord(UUID_CONSTANT_SINGLE_DEVICE);
         BluetoothService bluetoothService = new BluetoothService();
         bluetoothService.execute();
     }
 
     public MyDevice selectLoner() {
         if (myDevice == null) {
-            myDevice = new MyDevice(bluetoothSocket.getRemoteDevice().getName(), bluetoothSocket.getRemoteDevice().getAddress(), 1);
+            myDevice = new MyDevice(bluetoothSocket.getRemoteDevice().getName(), bluetoothSocket.getRemoteDevice().getAddress(), 1L);
             System.out.println(bluetoothSocket.isConnected());
         }
 
@@ -44,7 +43,7 @@ public class BluetoothDeviceProvider implements DeviceProvider {
     }
 
     @Override
-    public ArrayList<MyDevice> selectAll() {
+    public ArrayList<MyDevice> selectAll(ResponseHandler responseHandler) {
         ArrayList<MyDevice> devices = new ArrayList<>();
 
         devices.add(this.selectLoner());
@@ -77,7 +76,7 @@ public class BluetoothDeviceProvider implements DeviceProvider {
             try {
                 inputStream = bluetoothSocket.getInputStream();
 
-                Receive receive = new Receive(selectAll().get(0));
+                Receive receive = new Receive(selectAll(response -> {}).get(0));
                 receive.execute();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -111,7 +110,7 @@ public class BluetoothDeviceProvider implements DeviceProvider {
 
                 stringResult += new String(bytes, 0, value);
 
-                myDevice.addMessage(new Date().toString(), new Date().toString(), stringResult);
+                myDevice.addNotification(new Date().toString(), new Date().toString(), stringResult);
             }
         }
     }

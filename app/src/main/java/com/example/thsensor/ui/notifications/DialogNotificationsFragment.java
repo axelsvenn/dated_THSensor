@@ -2,7 +2,6 @@ package com.example.thsensor.ui.notifications;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
@@ -12,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.thsensor.R;
-import com.example.thsensor.devices.MyDevice;
+import com.example.thsensor.data.MyDevice;
 
 public class DialogNotificationsFragment extends DialogFragment {
 
@@ -35,7 +34,7 @@ public class DialogNotificationsFragment extends DialogFragment {
                 .setTitle(getResources().getText(R.string.dialog_title))
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setPositiveButton(getResources().getText(R.string.dialog_agree), null)
-                .setNeutralButton(getResources().getText(R.string.dialog_clear), (dialog, which) -> myDevice.clearMessages())
+                .setNeutralButton(getResources().getText(R.string.dialog_clear), (dialog, which) -> myDevice.clearNotifications())
                 .create();
 
 
