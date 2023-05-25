@@ -36,7 +36,6 @@ public class BluetoothDeviceProvider implements DeviceProvider {
     public MyDevice selectLoner() {
         if (myDevice == null) {
             myDevice = new MyDevice(bluetoothSocket.getRemoteDevice().getName(), bluetoothSocket.getRemoteDevice().getAddress(), 1L);
-            System.out.println(bluetoothSocket.isConnected());
         }
 
         return myDevice;
@@ -44,6 +43,14 @@ public class BluetoothDeviceProvider implements DeviceProvider {
 
     @Override
     public ArrayList<MyDevice> selectAll(ResponseHandler responseHandler) {
+        ArrayList<MyDevice> devices = new ArrayList<>();
+
+        devices.add(this.selectLoner());
+
+        return devices;
+    }
+
+    public ArrayList<MyDevice> selectAll() {
         ArrayList<MyDevice> devices = new ArrayList<>();
 
         devices.add(this.selectLoner());
@@ -99,7 +106,6 @@ public class BluetoothDeviceProvider implements DeviceProvider {
             String stringResult = "";
 
             while (true) {
-                System.out.println(bluetoothSocket.isConnected());
                 Integer value = 0;
                 try {
                     value = inputStream.read(bytes);

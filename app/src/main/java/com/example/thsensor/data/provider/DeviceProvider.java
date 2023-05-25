@@ -7,5 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface DeviceProvider extends DataProvider<MyDevice> {
+    @Override
     ArrayList<MyDevice> selectAll(ResponseHandler<List<MyDevice>> responseHandler);
 }

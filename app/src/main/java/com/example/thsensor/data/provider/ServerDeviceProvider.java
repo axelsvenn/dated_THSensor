@@ -15,16 +15,15 @@ import retrofit2.Retrofit;
 public class ServerDeviceProvider implements DeviceProvider {
     private Retrofit retrofit = RetroHelper.getServer();
     private DeviceService service = retrofit.create(DeviceService.class);
+    private ArrayList<MyDevice> devices = new ArrayList<>();
 
     @Override
     public ArrayList<MyDevice> selectAll(ResponseHandler<List<MyDevice>> responseHandler) {
-
-        ArrayList<MyDevice> devices = new ArrayList<>();
-
         Call<List<MyDevice>> call = service.getDevices();
 
         call.enqueue((MyCallback<List<MyDevice>>) (call1, response) -> {
             List<MyDevice> body = response.body();
+            devices.clear();
 
             devices.addAll(body);
             responseHandler.process(devices);
