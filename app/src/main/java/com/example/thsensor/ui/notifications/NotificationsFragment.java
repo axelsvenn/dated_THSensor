@@ -11,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.thsensor.data.DataHelper;
-import com.example.thsensor.data.MyDevice;
-import com.example.thsensor.data.Notification;
+import com.example.thsensor.data.provider.DataHelper;
+import com.example.thsensor.data.entity.MyDevice;
+import com.example.thsensor.data.entity.Notification;
 import com.example.thsensor.databinding.FragmentNotificationsBinding;
 
 import java.util.ArrayList;

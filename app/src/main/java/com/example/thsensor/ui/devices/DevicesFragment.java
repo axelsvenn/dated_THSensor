@@ -13,8 +13,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thsensor.R;
-import com.example.thsensor.data.DataHelper;
-import com.example.thsensor.data.MyDevice;
+import com.example.thsensor.data.provider.DataHelper;
+import com.example.thsensor.data.entity.MyDevice;
 import com.example.thsensor.databinding.FragmentDevicesBinding;
 import com.example.thsensor.ui.device.DeviceFragment;
 

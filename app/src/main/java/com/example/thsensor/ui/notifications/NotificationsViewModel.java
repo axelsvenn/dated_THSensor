@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.thsensor.data.Notification;
+import com.example.thsensor.data.entity.Notification;
 
 import java.util.ArrayList;
 

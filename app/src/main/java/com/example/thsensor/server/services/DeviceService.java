@@ -1,6 +1,6 @@
 package com.example.thsensor.server.services;
 
-import com.example.thsensor.data.MyDevice;
+import com.example.thsensor.data.entity.MyDevice;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import retrofit2.http.Query;
 public interface DeviceService {
 
     @GET("/device")
-    Call<MyDevice> getSingleDevice(@Query("id") Long id);
+    Call<List<MyDevice>> getDevices(@Query("id") Long id);
 
     @GET("/device")
     Call<List<MyDevice>> getDevices();
@@ -24,5 +24,5 @@ public interface DeviceService {
     Call<Void> saveDevice(@Body MyDevice myDevice);
 
     @DELETE("/device")
-    Call<Void> deleteDevice(@Path("id") MyDevice myDevice);
+    Call<Void> deleteDevice(@Path("id") Long id);
 }

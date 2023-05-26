@@ -1,4 +1,6 @@
-package com.example.thsensor.data;
+package com.example.thsensor.data.entity;
+
+import com.example.thsensor.data.provider.DataHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +18,11 @@ public class MyDevice {
     }
 
     protected boolean hasNotification() {
-        return this.notifications.isEmpty();
+        return DataHelper.getAllNotifications().isEmpty();
     }
 
     public void clearNotifications() {
-        this.notifications.clear();
+        DataHelper.deleteDeviceNotifications(this);
     }
 
     public void addNotification(String date, String time, String text) {
@@ -38,7 +40,7 @@ public class MyDevice {
     }
 
     public void deleteNotification(Notification notification) {
-        notifications.remove(notification);
+        DataHelper.deleteNotification(notification);
     }
 
     public String getName() {

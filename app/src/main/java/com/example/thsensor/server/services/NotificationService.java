@@ -1,6 +1,6 @@
 package com.example.thsensor.server.services;
 
-import com.example.thsensor.data.Notification;
+import com.example.thsensor.data.entity.Notification;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface NotificationService {
     public Call<List<Notification>> getNotifications();
 
     @GET("/notification")
-    public Call<Notification> getSingleNotification(@Query("id") Long id);
+    public Call<List<Notification>> getNotifications(@Query("id") Long id);
 
     @PUT("/notification")
     Call<Void> saveNotification(@Body Notification notification);

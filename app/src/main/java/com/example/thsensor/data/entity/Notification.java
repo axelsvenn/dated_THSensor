@@ -1,6 +1,9 @@
-package com.example.thsensor.data;
+package com.example.thsensor.data.entity;
+
+import com.example.thsensor.data.provider.DataHelper;
 
 public class Notification {
+    private Long id;
     private Long device_id;
     private String date, time;
     private String text;
@@ -10,6 +13,14 @@ public class Notification {
         this.time = time;
         this.text = text;
         this.device_id = device_id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getDevice_id() {
